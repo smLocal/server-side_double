@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test');
-var db = mongoose.connection;
+var db = require('./model/todo.js');
 
 
 

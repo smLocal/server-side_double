@@ -10,6 +10,6 @@ var todoSchema = new mongoose.Schema({
   completedOn     : Date
 });
 
-var todo = mongoose.model('Todo', todoSchema);
+var Todo = mongoose.model('Todo', todoSchema);
 
 module.exports = Todo;

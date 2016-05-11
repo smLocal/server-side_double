@@ -1,20 +1,21 @@
 var express = require('express');
 var router = express.Router();
+var todosController = require('../controllers/todosController.js');
 
 /* GET home page. */
 router.route('/new')
-  .get(postsController.new);
+  .get(todosController.new);
 
   router.route('/')
- .get(postsController.index)
- .post(postsController.create);
+ .get(todosController.index)
+ .post(todosController.create);
 
 router.route('/:id')
-  .get(postsController.show)
-  .patch(postsController.update)
-  .delete(postsController.destroy);
+  .get(todosController.show)
+  .patch(todosController.update)
+  .delete(todosController.destroy);
 
 router.route('/:id/edit')
-  .get(postsController.edit);
+  .get(todosController.edit);
 
 module.exports = router;
