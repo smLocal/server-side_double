@@ -38,7 +38,7 @@ controller.create = function(req, res) {
 controller.destroy = function(req, res){
   var id = req.params.id;
   console.log(req.body, req.params);
-  Equipment.findOneAndRemove({_id: id}, function(err, doc, result){
+  Todo.findOneAndRemove({_id: id}, function(err, doc, result){
     if (err){
       console.log(err);
     }
