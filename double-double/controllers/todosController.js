@@ -10,31 +10,30 @@ controller.index = function(req, res) {
   });
 };
 
-controller.show = function(){
-};
 
-controller.new = function(req, res) {
-  res.render('new');
-};
+
+
 
 controller.create = function(req, res) {
 
+
   var todo = new Todo({
-    firstName: req.body.personSchema.firstName,
-    lastName: req.body.personSchema.lastName,
-    item: req.body.personSchema.item,
-    email: req.body.personSchema.email,
-    comment: req.body.personSchema.comment,
-    timeCheckedOut: req.body.personSchema.timeCheckedOut
+    title: req.body.todoSchema.title,
+    priority: req.body.todoSchema.priority,
+    difficulty: req.body.todoSchema.difficulty,
+    isComplete: req.body.todoSchema.isComplete,
+    createdAt: req.body.todoSchema.createdAt,
+    updatedAt: req.body.todoSchema.updatedAt
   });
 
 
-  person.save(function(err) {
+  todo.save(function(err) {
     if (err) throw err;
-    res.redirect('/');
+    res.json(todo);
   });
 
 };
+
 controller.destroy = function(req, res){
   var id = req.params.id;
   console.log(req.body, req.params);
@@ -48,6 +47,31 @@ controller.destroy = function(req, res){
 };
 
 controller.update = function(req, res) {
+  var title = req.params.tile;
+  var priority = req.body.priority;
+  var difficulty = req.body.difficulty;
+  var isComplete = req.body.isComplete;
+  var createdAt = req.body.createdAt;
+  var updatedAt = req.body.updatedAt;
+  var completedOn = req.body.completedOn
+
+
+  Todo.findOneAndUpdate(
+    {_id: id},
+    { priority: priority,
+      isComplete: isComplete,
+      createdAt: createdAt,
+      updatedAt: updatedAt,
+      completedOn: completedOn
+
+
+    },
+    function(err, todos) {
+    if (err) {
+      throw err;
+    }
+      res.redirect('/index');
+  });
 };
 
 module.exports = controller;
