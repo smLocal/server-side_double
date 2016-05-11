@@ -5,6 +5,10 @@ var router = express.Router();
 router.route('/new')
   .get(postsController.new);
 
+  router.route('/')
+ .get(postsController.index)
+ .post(postsController.create);
+
 router.route('/:id')
   .get(postsController.show)
   .patch(postsController.update)
