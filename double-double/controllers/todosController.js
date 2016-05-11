@@ -6,7 +6,7 @@ controller.index = function(req, res) {
     if (err) {
       throw err;
     }
-    res.json(person);
+    res.json(todo);
   });
 };
 
@@ -23,7 +23,9 @@ controller.create = function(req, res) {
     difficulty: req.body.todoSchema.difficulty,
     isComplete: req.body.todoSchema.isComplete,
     createdAt: req.body.todoSchema.createdAt,
-    updatedAt: req.body.todoSchema.updatedAt
+    updatedAt: req.body.todoSchema.updatedAt,
+    completedOn: req.body.todoSchema.completedOn
+
   });
 
 
